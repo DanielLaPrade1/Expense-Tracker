@@ -4,24 +4,24 @@ import { FaQuestionCircle } from "react-icons/fa";
 
 const PaymentForm = () => {
   return (
-    <form>
+    <form className="container-pf">
       <div className="mb-3">
         <label className="form-label input-label">Date</label>
         <input
           type="date"
-          className="form-control"
+          className="form-control input"
           id="date"
           aria-describedby="emailHelp"
         />
       </div>
       <div className="mb-3">
         <label className="form-label input-label">Amount</label>
-        <input type="number" className="form-control" id="amount" />
+        <input type="number" className="form-control input" id="amount" />
       </div>
       <div className="mb-3 form-check">
         <input type="checkbox" className="form-check-input checkbox" id="gas" />
         <label className="form-check-label checkbox-label" htmlFor="gas">
-          <FaQuestionCircle size={20} color="green" />
+          <FaQuestionCircle size={20} color="#fc7" />
           &nbsp; Gas Deducted from total
         </label>
       </div>
