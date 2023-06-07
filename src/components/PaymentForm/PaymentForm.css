@@ -1,5 +1,5 @@
 .container-pf {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     transition: max-width 0.3s;
 
@@ -17,7 +17,8 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .input {
-    max-width: 400px;
+    min-width: 350px;
+    max-width: 500px;
 }
 .checkbox {
     cursor: pointer;
@@ -35,6 +36,8 @@
     font-weight: 500;
     color: #222;
     transition: 0.35s;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    user-select: none;
 }
 .btn-custom:hover {
     background-color: #fc7;

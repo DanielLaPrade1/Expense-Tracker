@@ -1,13 +1,18 @@
 import "./PaymentForm.css";
 import { FaQuestionCircle } from "react-icons/fa";
 import { FieldValues, useForm } from "react-hook-form";
+import { BiError } from "react-icons/bi";
 
 interface Props {
   onSubmit: (data: FieldValues) => void;
 }
 
 const PaymentForm = ({ onSubmit }: Props) => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   return (
     <form className="container-pf" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
@@ -17,7 +22,6 @@ const PaymentForm = ({ onSubmit }: Props) => {
           id="date"
           type="date"
           className="form-control input"
-          aria-describedby="emailHelp"
         />
       </div>
       <div className="mb-3">
@@ -25,7 +29,8 @@ const PaymentForm = ({ onSubmit }: Props) => {
         <input
           {...register("amount")}
           id="amount"
-          type="float"
+          type="number"
+          step="any"
           className="form-control input"
         />
       </div>
