@@ -1,5 +1,6 @@
 import "./ResultGrid.css";
 import React, { useState } from "react";
+import { BiCheckCircle, BiXCircle } from "react-icons/bi";
 
 interface Props {
   date: string;
@@ -13,6 +14,7 @@ const ResultGrid = ({ date, amount, gas, onDelete }: Props) => {
   const [isClicked, setIsClicked] = useState(false);
   const [showAdditionalColumn, setShowAdditionalColumn] = useState(false);
 
+  //Update row state on click
   const handleClick = () => {
     isClicked ? setIsClicked(false) : setIsClicked(true);
     showAdditionalColumn
@@ -28,7 +30,13 @@ const ResultGrid = ({ date, amount, gas, onDelete }: Props) => {
     <tr onClick={handleClick}>
       <td scope="row">{date}</td>
       <td>${parseFloat(amount).toFixed(2)}</td>
-      <td>{gas ? "Deducted" : "Not deducted"}</td>
+      <td>
+        {gas ? (
+          <BiCheckCircle color="green" size={25} />
+        ) : (
+          <BiXCircle color="red" size={25} />
+        )}
+      </td>
       {showAdditionalColumn && (
         <div className={showAdditionalColumn ? "max-width-column" : ""}>
           <button className="button" onClick={onDelete}>

@@ -13,6 +13,7 @@ const PaymentForm = ({ onSubmit }: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   return (
     <form className="container-pf" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">

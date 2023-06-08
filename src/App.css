@@ -18,6 +18,5 @@
 }
 .table-width {
     width: 600px;
-    overflow-x: auto; /* Enable horizontal scrolling if necessary */
-  
+    overflow-x: auto;
 }
