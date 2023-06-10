@@ -8,6 +8,26 @@ import { FieldValues } from "react-hook-form";
 import { BiError } from "react-icons/bi";
 import SortSelector from "./components/SortSelector";
 
+const sortTable = (data: FieldValues[], option: string) => {
+  if (option === "Ah2l") {
+    return [...data].sort((a, b) => b.amount - a.amount);
+  }
+  if (option === "Al2h") {
+    return [...data].sort((a, b) => a.amount - b.amount);
+  }
+  if (option === "Dh2l") {
+    return [...data].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+  if (option === "Dl2h") {
+    return [...data].sort(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
+  }
+  return data;
+};
+
 const App = () => {
   //Load form data and total from local storage
   const [formData, setFormData] = useState<FieldValues[]>(() => {
@@ -59,36 +79,10 @@ const App = () => {
     setSelectedOption(e.target.value);
   };
 
-  const sortTable = () => {
-    console.log(selectedOption);
-    if (selectedOption == "Amount h2l") {
-      const sortedData = [...formData].sort((a, b) => b.amount - a.amount);
-      setFormData(sortedData);
-    }
-    if (selectedOption == "Amount l2h") {
-      const sortedData = [...formData].sort((a, b) => a.amount - b.amount);
-      setFormData(sortedData);
-    }
-    if (selectedOption == "Date h2l") {
-      const sortedData = [...formData].sort((a, b) => {
-        const dateA = new Date(a.date).getTime();
-        const dateB = new Date(b.date).getTime();
-        return dateB - dateA;
-      });
-      setFormData(sortedData);
-    }
-    if (selectedOption == "Date l2h") {
-      const sortedData = [...formData].sort((a, b) => {
-        const dateA = new Date(a.date).getTime();
-        const dateB = new Date(b.date).getTime();
-        return dateA - dateB;
-      });
-      setFormData(sortedData);
-    }
-  };
   useEffect(() => {
-    sortTable();
-  }, [selectedOption, formData]);
+    const sortedData = sortTable(formData, selectedOption);
+    setFormData(sortedData);
+  }, [selectedOption]);
 
   return (
     <div>
