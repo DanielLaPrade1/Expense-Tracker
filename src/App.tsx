@@ -8,6 +8,7 @@ import { FieldValues } from "react-hook-form";
 import { BiError } from "react-icons/bi";
 import SortSelector from "./components/SortSelector";
 
+//Different sorts for the ResultGrid
 const sortTable = (data: FieldValues[], option: string) => {
   if (option === "Ah2l") {
     return [...data].sort((a, b) => b.amount - a.amount);
@@ -38,6 +39,10 @@ const App = () => {
     const storedTotal = localStorage.getItem("amountTotal");
     return storedTotal ? parseFloat(storedTotal) : 0;
   });
+  const [selectedOption, setSelectedOption] = useState(() => {
+    const storedOption = localStorage.getItem("selectedOption");
+    return storedOption || "";
+  });
 
   //Error handling
   const [dateError, setDateError] = useState(false);
@@ -54,7 +59,7 @@ const App = () => {
   //Handle input submission and update total
   const handleFormSubmit = (data: FieldValues) => {
     if (data.date != "" && data.amount != "") {
-      const newFormData = [...formData, data];
+      const newFormData = sortTable([...formData, data], selectedOption);
       setFormData(newFormData);
       setDateError(false);
       setAmountError(false);
@@ -74,9 +79,10 @@ const App = () => {
   };
 
   //Sort items based on selected option from SortSelector
-  const [selectedOption, setSelectedOption] = useState("");
   const handleSelectChange = (e: FieldValues) => {
-    setSelectedOption(e.target.value);
+    const selected = e.target.value;
+    setSelectedOption(selected);
+    localStorage.setItem("selectedOption", selected);
   };
 
   useEffect(() => {
@@ -105,7 +111,10 @@ const App = () => {
           Please enter a Date and Amount.
         </div>
       )}
-      <SortSelector onSelectChange={handleSelectChange} />
+      <SortSelector
+        onSelectChange={handleSelectChange}
+        selectedOption={selectedOption}
+      />
       <div className="container-rg">
         <table className="table table-hover table-light">
           <thead>

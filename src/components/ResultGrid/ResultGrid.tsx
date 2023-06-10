@@ -37,6 +37,7 @@ const ResultGrid = ({ date, amount, gas, onDelete }: Props) => {
           <BiXCircle color="red" size={25} />
         )}
       </td>
+
       {showAdditionalColumn && (
         <button className="button" onClick={onDelete}>
           Delete
