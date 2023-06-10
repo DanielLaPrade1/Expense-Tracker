@@ -10,6 +10,7 @@ interface Props {
 const SortSelector = ({ onSelectChange, selectedOption }: Props) => {
   return (
     <div className="select-box">
+      <label className="form-label input-label">Sort By:</label>
       <select
         className="form-select bg-light"
         aria-label="Default select example"
