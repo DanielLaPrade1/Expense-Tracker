@@ -6,6 +6,7 @@ import PaymentForm from "./components/PaymentForm";
 import ResultGrid from "./components/ResultGrid";
 import { FieldValues } from "react-hook-form";
 import { BiError } from "react-icons/bi";
+import SortSelector from "./components/SortSelector";
 
 const App = () => {
   //Load form data and total from local storage
@@ -52,6 +53,43 @@ const App = () => {
     setAmountTotal(amountTotal - parseFloat(formData[index].amount));
   };
 
+  //Sort items based on selected option from SortSelector
+  const [selectedOption, setSelectedOption] = useState("");
+  const handleSelectChange = (e: FieldValues) => {
+    setSelectedOption(e.target.value);
+  };
+
+  const sortTable = () => {
+    console.log(selectedOption);
+    if (selectedOption == "Amount h2l") {
+      const sortedData = [...formData].sort((a, b) => b.amount - a.amount);
+      setFormData(sortedData);
+    }
+    if (selectedOption == "Amount l2h") {
+      const sortedData = [...formData].sort((a, b) => a.amount - b.amount);
+      setFormData(sortedData);
+    }
+    if (selectedOption == "Date h2l") {
+      const sortedData = [...formData].sort((a, b) => {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return dateB - dateA;
+      });
+      setFormData(sortedData);
+    }
+    if (selectedOption == "Date l2h") {
+      const sortedData = [...formData].sort((a, b) => {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return dateA - dateB;
+      });
+      setFormData(sortedData);
+    }
+  };
+  useEffect(() => {
+    sortTable();
+  }, [selectedOption, formData]);
+
   return (
     <div>
       <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
@@ -73,9 +111,10 @@ const App = () => {
           Please enter a Date and Amount.
         </div>
       )}
+      <SortSelector onSelectChange={handleSelectChange} />
       <div className="container-rg">
-        <table className="table table-hover table-width">
-          <thead className="table table-bordered">
+        <table className="table table-hover table-light">
+          <thead>
             <tr>
               <th scope="col">Date</th>
               <th scope="col">$ Amount</th>

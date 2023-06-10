@@ -1,17 +1,21 @@
 .container-rg {
     margin-top: 50px;
-    max-width: 90%;
+    margin-right: 30px;
 }
 .max-width-column {
-    max-width: 30px;
+    max-width: 10px;
+    background-color: transparent;
 }
 .button {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    margin-right: -50px;
+    margin-top: 5px;
     border-radius: 10px;
-    min-width: 17px;
     height: 28px;
-    font-size: 14px;
+    margin-left: 15%;
+    font-size: 15px;
     background-color: none;
     color: #222;
     transition: 0.35s;

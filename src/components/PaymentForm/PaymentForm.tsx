@@ -22,7 +22,7 @@ const PaymentForm = ({ onSubmit }: Props) => {
           {...register("date")}
           id="date"
           type="date"
-          className="form-control input"
+          className="form-control bg-light input"
         />
       </div>
       <div className="mb-3">
@@ -32,7 +32,7 @@ const PaymentForm = ({ onSubmit }: Props) => {
           id="amount"
           type="number"
           step="any"
-          className="form-control input"
+          className="form-control bg-light input"
         />
       </div>
       <div className="mb-3 form-check">
@@ -40,7 +40,7 @@ const PaymentForm = ({ onSubmit }: Props) => {
           {...register("gas")}
           id="gas"
           type="checkbox"
-          className="form-check-input checkbox"
+          className="form-check-input checkbox bg-light"
         />
         <label className="form-check-label checkbox-label" htmlFor="gas">
           <FaQuestionCircle size={20} color="#fc7" />

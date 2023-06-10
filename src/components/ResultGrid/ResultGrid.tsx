@@ -38,11 +38,9 @@ const ResultGrid = ({ date, amount, gas, onDelete }: Props) => {
         )}
       </td>
       {showAdditionalColumn && (
-        <div className={showAdditionalColumn ? "max-width-column" : ""}>
-          <button className="button" onClick={onDelete}>
-            Delete
-          </button>
-        </div>
+        <button className="button" onClick={onDelete}>
+          Delete
+        </button>
       )}
     </tr>
   );
