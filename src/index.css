@@ -4,14 +4,13 @@
     align-items: left;
     background-repeat: repeat;
     min-height: 100vh;
-    min-width: 100vw;
+    min-width: 100%;
     padding: 20px;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) and (orientation: landscape){
     .background {
-        overflow-x: scroll;
-        overflow-y: scroll;
+        overflow-x: auto;
     }
 }
 
