@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
+import MrKrabsImage from "../images/MrKrabs.ico";
 
 import PaymentForm from "./components/PaymentForm";
 import ResultGrid from "./components/ResultGrid";
@@ -91,7 +92,7 @@ const App = () => {
 
   return (
     <div>
-      <img className="side-image" src="/images/MrKrabs.ico" />
+      <img className="side-image" src={MrKrabsImage} />
       <div className="components">
         <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
 
