@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
 import MrKrabsImage from "../images/MrKrabs.ico";
-import PaymentTrackerBackground from "./images/PaymentTrackerBackground.ico";
+import PaymentTrackerBackground from "../images/PaymentTrackerBackground.ico";
 
 import PaymentForm from "./components/PaymentForm";
 import ResultGrid from "./components/ResultGrid";
@@ -91,7 +91,14 @@ const App = () => {
   }, [selectedOption]);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${PaymentTrackerBackground})`,
+        backgroundSize: "contain",
+        padding: `20px`,
+        position: `relative`,
+      }}
+    >
       <img className="side-image" src={MrKrabsImage} />
       <div className="components">
         <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>

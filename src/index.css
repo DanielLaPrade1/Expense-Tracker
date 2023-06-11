@@ -1,12 +1,4 @@
 
-
-body {
-    padding: 20px;
-    position: relative;
-    background-image: url("../images/PaymentTrackerBackground.ico");
-    background-size: contain;
-    background-repeat:repeat;
-}
 .components {
     position: relative;
     z-index: 2;
