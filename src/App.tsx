@@ -91,7 +91,7 @@ const App = () => {
 
   return (
     <div>
-      <img className="side-image" src="/images/MrKrabs.png" />
+      <img className="side-image" src="/images/MrKrabs.ico" />
       <div className="components">
         <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
 
