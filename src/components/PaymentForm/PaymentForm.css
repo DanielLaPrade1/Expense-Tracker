@@ -6,6 +6,7 @@
     display: inline-block;
     align-items: left;
     justify-content: left;
+    margin-right: 100px;
 }
 
 .checkbox-label {

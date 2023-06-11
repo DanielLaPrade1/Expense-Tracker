@@ -1,10 +1,13 @@
-.error {
-    font-size: 17px;
-    color: maroon;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: inline-block;
-    align-items: normal;
-    margin-left: -50px;
+.side-image {
+  position: absolute;
+  max-width: 80%;
+  max-height: 80%;
+  width: auto;
+  height: auto;
+  top: 80;
+  margin-left: 450px;
+  z-index: 1;
+  user-select: none;
 }
 .total-label {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

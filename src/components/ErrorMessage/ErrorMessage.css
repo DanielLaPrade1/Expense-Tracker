@@ -1,0 +1,12 @@
+.error {
+    font-size: 17px;
+    color: maroon;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-right: 10%;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+.error.fade-in {
+  opacity: 1;
+}

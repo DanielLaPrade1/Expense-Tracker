@@ -40,7 +40,7 @@ const PaymentForm = ({ onSubmit }: Props) => {
           {...register("gas")}
           id="gas"
           type="checkbox"
-          className="form-check-input checkbox bg-light"
+          className="form-check-input checkbox"
         />
         <label className="form-check-label checkbox-label" htmlFor="gas">
           <FaQuestionCircle size={20} color="#fc7" />

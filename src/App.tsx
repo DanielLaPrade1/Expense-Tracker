@@ -7,6 +7,7 @@ import ResultGrid from "./components/ResultGrid";
 import { FieldValues } from "react-hook-form";
 import { BiError } from "react-icons/bi";
 import SortSelector from "./components/SortSelector";
+import ErrorMessage from "./components/ErrorMessage";
 
 //Different sorts for the ResultGrid
 const sortTable = (data: FieldValues[], option: string) => {
@@ -30,7 +31,7 @@ const sortTable = (data: FieldValues[], option: string) => {
 };
 
 const App = () => {
-  //Load form data and total from local storage
+  //Load form data, total and sort selection from local storage
   const [formData, setFormData] = useState<FieldValues[]>(() => {
     const storedData = localStorage.getItem("formData");
     return storedData ? JSON.parse(storedData) : [];
@@ -61,8 +62,6 @@ const App = () => {
     if (data.date != "" && data.amount != "") {
       const newFormData = sortTable([...formData, data], selectedOption);
       setFormData(newFormData);
-      setDateError(false);
-      setAmountError(false);
       setAmountTotal(amountTotal + parseFloat(data.amount));
     } else {
       data.date == "" ? setDateError(true) : setDateError(false);
@@ -92,53 +91,50 @@ const App = () => {
 
   return (
     <div>
-      <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
-      {!amountError && dateError && (
-        <div className="error">
-          <BiError color="red" size={30} />
-          Please enter a Date.
+      <img className="side-image" src="/images/MrKrabs.png" />
+      <div className="components">
+        <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
+
+        {!amountError && dateError && (
+          <ErrorMessage message="Please enter a Date." />
+        )}
+        {amountError && !dateError && (
+          <ErrorMessage message="Please enter an Amount." />
+        )}
+        {amountError && dateError && (
+          <ErrorMessage message="Please enter a Date and Amount." />
+        )}
+
+        <SortSelector
+          onSelectChange={handleSelectChange}
+          selectedOption={selectedOption}
+        />
+
+        <div className="container-rg">
+          <table className="table table-hover table-light">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">$Amount</th>
+                <th scope="col">Gas?</th>
+              </tr>
+            </thead>
+            <tbody>
+              {formData.map((oneFormData, index) => (
+                <ResultGrid
+                  key={index}
+                  date={oneFormData.date}
+                  amount={oneFormData.amount}
+                  gas={oneFormData.gas}
+                  onDelete={() => handleDelete(index)}
+                />
+              ))}
+            </tbody>
+          </table>
         </div>
-      )}
-      {amountError && !dateError && (
-        <div className="error">
-          <BiError color="red" size={30} />
-          Please enter an Amount.
-        </div>
-      )}
-      {amountError && dateError && (
-        <div className="error">
-          <BiError color="red" size={30} />
-          Please enter a Date and Amount.
-        </div>
-      )}
-      <SortSelector
-        onSelectChange={handleSelectChange}
-        selectedOption={selectedOption}
-      />
-      <div className="container-rg">
-        <table className="table table-hover table-light">
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">$ Amount</th>
-              <th scope="col">Gas?</th>
-            </tr>
-          </thead>
-          <tbody>
-            {formData.map((oneFormData, index) => (
-              <ResultGrid
-                key={index}
-                date={oneFormData.date}
-                amount={oneFormData.amount}
-                gas={oneFormData.gas}
-                onDelete={() => handleDelete(index)}
-              />
-            ))}
-          </tbody>
-        </table>
+        <p className="total-label">Total: </p>
+        <p className="total-display">${amountTotal.toFixed(2)}</p>
       </div>
-      <p className="total-label">Total: </p>
-      <p className="total-display">${amountTotal.toFixed(2)}</p>
     </div>
   );
 };
