@@ -10,9 +10,8 @@
 
 @media only screen and (max-width: 450px) {
     .background {
-        overflow: scroll;
-        min-width: 100vw;
-        min-height: 100vh;
+        overflow-x: scroll;
+        overflow-y: scroll;
     }
 }
 
