@@ -101,6 +101,7 @@ const App = () => {
         backgroundSize: "cover-y",
         backgroundRepeat: "repeat",
         padding: `20px`,
+        overflow: "visible",
       }}
     >
       <img className="side-image" src={MrKrabsImage} />
