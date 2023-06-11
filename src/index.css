@@ -11,7 +11,7 @@
 @media only screen and (max-width: 600px) and (orientation: landscape){
     .background {
         overflow-x: auto;
-        background-size: cover;
+        size: cover;
     }
 }
 
