@@ -17,6 +17,7 @@
 @media only screen and (max-width: 600px) and (orientation: portrait) {
     .background {
         overflow-y: auto;
+        min-width: 150vw;
     }
 }
 
