@@ -143,7 +143,7 @@ const App = () => {
           </table>
         </div>
 
-        <div className="total-container">
+        <div>
           <p className="total-label">Total: </p>
           <p className="total-display">${amountTotal.toFixed(2)}</p>
         </div>

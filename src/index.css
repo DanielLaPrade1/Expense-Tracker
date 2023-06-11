@@ -8,14 +8,13 @@
     padding: 20px;
 }
 
-@media only screen and (max-width: 600px) and (orientation: landscape){
+@media only screen and (max-width: 1000px) and (orientation: landscape){
     .background {
-        overflow-y: auto;
-        min-width: 150vw;
+        overflow-x: auto;
     }
 }
 
-@media only screen and (max-width: 600px) and (orientation: portrait) {
+@media only screen and (max-width: 1000px) and (orientation: portrait) {
     .background {
         overflow-x: auto;
     }

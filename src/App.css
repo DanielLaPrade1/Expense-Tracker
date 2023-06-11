@@ -9,9 +9,6 @@
   z-index: 2;
   user-select: none;
 }
-.total-container {
-  min-width: 100%;
-}
 .total-label {
   font-size: 23px;
   margin-bottom: 2px;
