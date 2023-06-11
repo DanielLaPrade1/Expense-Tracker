@@ -5,3 +5,12 @@
     min-width: 90vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+@media only screen and (max-width: 600px) {
+    .side-image {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+      max-height: none;
+    }
+  }

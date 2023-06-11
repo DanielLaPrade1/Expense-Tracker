@@ -104,6 +104,7 @@ const App = () => {
         minHeight: "100%",
         minWidth: "100%",
         padding: "20px",
+        overflowX: "visible",
       }}
     >
       <div className="components">
