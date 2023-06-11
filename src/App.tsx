@@ -94,17 +94,11 @@ const App = () => {
 
   return (
     <div
+      className="background"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "left",
         backgroundImage: `url(${PaymentTrackerBackground})`,
         backgroundSize: "cover-y",
         backgroundRepeat: "repeat",
-        minHeight: "100%",
-        minWidth: "100%",
-        padding: "20px",
-        overflowX: "visible",
       }}
     >
       <div className="components">

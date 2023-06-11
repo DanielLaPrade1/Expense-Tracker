@@ -6,7 +6,7 @@
   height: auto;
   top: 80;
   margin-left: 450px;
-  z-index: 1;
+  z-index: 2;
   user-select: none;
 }
 .total-container {
