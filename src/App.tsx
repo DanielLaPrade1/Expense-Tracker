@@ -95,18 +95,19 @@ const App = () => {
   return (
     <div
       style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "left",
         backgroundImage: `url(${PaymentTrackerBackground})`,
-        height: "100%",
-        width: "100%",
         backgroundSize: "cover-y",
         backgroundRepeat: "repeat",
-        padding: `20px`,
-        overflow: "visible",
+        minHeight: "100%",
+        minWidth: "100%",
+        padding: "20px",
       }}
     >
-      <img className="side-image" src={MrKrabsImage} />
-
       <div className="components">
+        <img className="side-image" src={MrKrabsImage} />
         <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
 
         {!amountError && dateError && (
