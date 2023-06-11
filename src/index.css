@@ -1,7 +1,9 @@
+
+
 body {
     padding: 20px;
     position: relative;
-    background-image: url("images/PaymentTrackerBackground.ico"); /* Replace with the path to your image */
+    background-image: url("../images/PaymentTrackerBackground.ico");
     background-size: contain;
     background-repeat:repeat;
 }

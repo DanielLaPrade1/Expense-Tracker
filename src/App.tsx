@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import "./index.css";
 import MrKrabsImage from "../images/MrKrabs.ico";
+import PaymentTrackerBackground from "./images/PaymentTrackerBackground.ico";
 
 import PaymentForm from "./components/PaymentForm";
 import ResultGrid from "./components/ResultGrid";
 import { FieldValues } from "react-hook-form";
-import { BiError } from "react-icons/bi";
 import SortSelector from "./components/SortSelector";
 import ErrorMessage from "./components/ErrorMessage";
 
