@@ -8,18 +8,23 @@
     padding: 20px;
 }
 
-@media only screen and (max-width: 800px){
-    .background {
-        overflow-x: auto;
-        transform: scale(0.8);
-        transform-origin: top left;
-    }
-}
-
 .components {
     position: relative;
     z-index: 2;
     min-height: 100vh;
     min-width: 90vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media only screen and (max-width: 800px){
+    .background {
+        overflow-x: auto;
+        transform: scale(0.7);
+        transform-origin: top left;
+        padding: 10px;
+    }
+    .components {
+        transform: scale(0.7);
+        transform-origin: top left;
+    }
 }
