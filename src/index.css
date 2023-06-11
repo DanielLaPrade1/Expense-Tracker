@@ -1,4 +1,6 @@
-
+body {
+    background-repeat:repeat;
+}
 .components {
     position: relative;
     z-index: 2;
