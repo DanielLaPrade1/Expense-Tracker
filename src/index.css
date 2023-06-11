@@ -4,7 +4,7 @@
     align-items: left;
     background-repeat: repeat;
     min-height: 100vh;
-    min-width: 100%;
+    min-width: 100vw;
     padding: 20px;
 }
 
