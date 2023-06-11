@@ -94,7 +94,7 @@ const App = () => {
     <div
       style={{
         backgroundImage: `url(${PaymentTrackerBackground})`,
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundRepeat: "repeat",
         padding: `20px`,
         position: `relative`,
