@@ -1,4 +1,7 @@
 .components {
     position: relative;
     z-index: 2;
+    min-height: 100vh;
+    min-width: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

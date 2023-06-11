@@ -92,19 +92,6 @@ const App = () => {
     setFormData(sortedData);
   }, [selectedOption]);
 
-  const divRef = useRef<HTMLDivElement>(null);
-  const updateDivHeight = () => {
-    const divElement = divRef.current;
-    if (divElement) {
-      const { height } = divElement.getBoundingClientRect();
-      divElement.style.minHeight = `${height}px`;
-    }
-  };
-
-  useEffect(() => {
-    updateDivHeight();
-  });
-
   return (
     <div
       style={{
@@ -156,15 +143,11 @@ const App = () => {
             </tbody>
           </table>
         </div>
-        <p className="total-label">Total: </p>
-        <p className="total-display">${amountTotal.toFixed(2)}</p>
+        <div className="total-container">
+          <p className="total-label">Total: </p>
+          <p className="total-display">${amountTotal.toFixed(2)}</p>
+        </div>
       </div>
-      <div
-        style={{
-          backgroundImage: `url(${PaymentTrackerBackground})`,
-          height: `258px`,
-        }}
-      ></div>
     </div>
   );
 };

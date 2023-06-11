@@ -19,7 +19,6 @@
     background-color: none;
     color: #222;
     transition: 0.35s;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     user-select: none;
 }
 .button:hover {
