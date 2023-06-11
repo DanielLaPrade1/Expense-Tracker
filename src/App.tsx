@@ -97,12 +97,14 @@ const App = () => {
       style={{
         backgroundImage: `url(${PaymentTrackerBackground})`,
         height: "100%",
+        minWidth: "100vw",
         backgroundSize: "cover-y",
         backgroundRepeat: "repeat",
         padding: `20px`,
       }}
     >
       <img className="side-image" src={MrKrabsImage} />
+
       <div className="components">
         <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
 
@@ -143,6 +145,7 @@ const App = () => {
             </tbody>
           </table>
         </div>
+
         <div className="total-container">
           <p className="total-label">Total: </p>
           <p className="total-display">${amountTotal.toFixed(2)}</p>
