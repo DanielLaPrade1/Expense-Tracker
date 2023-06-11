@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import "./index.css";
 import MrKrabsImage from "../images/MrKrabs.ico";
@@ -63,6 +63,8 @@ const App = () => {
     if (data.date != "" && data.amount != "") {
       const newFormData = sortTable([...formData, data], selectedOption);
       setFormData(newFormData);
+      setDateError(false);
+      setAmountError(false);
       setAmountTotal(amountTotal + parseFloat(data.amount));
     } else {
       data.date == "" ? setDateError(true) : setDateError(false);
@@ -90,14 +92,27 @@ const App = () => {
     setFormData(sortedData);
   }, [selectedOption]);
 
+  const divRef = useRef<HTMLDivElement>(null);
+  const updateDivHeight = () => {
+    const divElement = divRef.current;
+    if (divElement) {
+      const { height } = divElement.getBoundingClientRect();
+      divElement.style.minHeight = `${height}px`;
+    }
+  };
+
+  useEffect(() => {
+    updateDivHeight();
+  });
+
   return (
     <div
       style={{
         backgroundImage: `url(${PaymentTrackerBackground})`,
-        backgroundSize: "cover",
+        height: "100%",
+        backgroundSize: "cover-y",
         backgroundRepeat: "repeat",
         padding: `20px`,
-        position: `relative`,
       }}
     >
       <img className="side-image" src={MrKrabsImage} />
@@ -144,6 +159,12 @@ const App = () => {
         <p className="total-label">Total: </p>
         <p className="total-display">${amountTotal.toFixed(2)}</p>
       </div>
+      <div
+        style={{
+          backgroundImage: `url(${PaymentTrackerBackground})`,
+          height: `258px`,
+        }}
+      ></div>
     </div>
   );
 };
