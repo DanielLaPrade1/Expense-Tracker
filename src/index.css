@@ -8,9 +8,11 @@
     padding: 20px;
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 800px){
     .background {
         overflow-x: auto;
+        transform: scale(0.8);
+        transform-origin: top left;
     }
 }
 
