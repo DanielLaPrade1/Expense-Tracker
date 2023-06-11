@@ -6,14 +6,11 @@
     min-height: 100vh;
     min-width: 100%;
     padding: 20px;
-    overflow-x: visible;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 450px) {
     .background {
-      margin-left: 0;
-      width: 100%;
-      overflow: scroll;
+        overflow: scroll;
     }
 }
 
