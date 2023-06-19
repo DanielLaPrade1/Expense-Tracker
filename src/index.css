@@ -1,11 +1,29 @@
-body {
+.background {
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-repeat: repeat;
+    min-height: 100vh;
+    min-width: 100%;
     padding: 20px;
-    position: relative;
-    background-image: url("C:\Users\defaultuser0.LAPTOP-KABCTR0T\PaymentTracker\images\PaymentTrackerBackground.png"); /* Replace with the path to your image */
-    background-size: contain;
-    background-repeat:repeat;
 }
+
 .components {
     position: relative;
     z-index: 2;
+    min-height: 100vh;
+    min-width: 90vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media only screen and (max-width: 800px){
+    .background {
+        overflow-x: auto;
+        transform-origin: top left;
+        padding: 15px;
+    }
+    .components {
+        transform-origin: top left;
+    }
 }

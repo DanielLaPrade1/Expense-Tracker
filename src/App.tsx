@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import "./index.css";
+import MrKrabsImage from "../images/MrKrabs.ico";
+import PaymentTrackerBackground from "../images/PaymentTrackerBackground.ico";
 
 import PaymentForm from "./components/PaymentForm";
 import ResultGrid from "./components/ResultGrid";
 import { FieldValues } from "react-hook-form";
-import { BiError } from "react-icons/bi";
 import SortSelector from "./components/SortSelector";
 import ErrorMessage from "./components/ErrorMessage";
 
@@ -62,6 +63,8 @@ const App = () => {
     if (data.date != "" && data.amount != "") {
       const newFormData = sortTable([...formData, data], selectedOption);
       setFormData(newFormData);
+      setDateError(false);
+      setAmountError(false);
       setAmountTotal(amountTotal + parseFloat(data.amount));
     } else {
       data.date == "" ? setDateError(true) : setDateError(false);
@@ -90,9 +93,16 @@ const App = () => {
   }, [selectedOption]);
 
   return (
-    <div>
-      <img className="side-image" src="/images/MrKrabs.png" />
+    <div
+      className="background"
+      style={{
+        backgroundImage: `url(${PaymentTrackerBackground})`,
+        backgroundSize: "cover-y",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <div className="components">
+        <img className="side-image" src={MrKrabsImage} />
         <PaymentForm onSubmit={handleFormSubmit}></PaymentForm>
 
         {!amountError && dateError && (
@@ -132,8 +142,11 @@ const App = () => {
             </tbody>
           </table>
         </div>
-        <p className="total-label">Total: </p>
-        <p className="total-display">${amountTotal.toFixed(2)}</p>
+
+        <div>
+          <p className="total-label">Total: </p>
+          <p className="total-display">${amountTotal.toFixed(2)}</p>
+        </div>
       </div>
     </div>
   );

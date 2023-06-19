@@ -10,13 +10,10 @@
 }
 
 .checkbox-label {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
     min-width: 250px;
 }
-.input-label {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+
 .input {
     min-width: 350px;
     max-width: 500px;
@@ -37,7 +34,6 @@
     font-weight: 500;
     color: #222;
     transition: 0.35s;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     user-select: none;
 }
 .btn-custom:hover {
